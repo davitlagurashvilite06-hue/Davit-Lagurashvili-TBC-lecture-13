@@ -118,7 +118,6 @@ footer {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  flex-wrap: nowrap;
   gap: 40px;
 }
 footer .footer-list {

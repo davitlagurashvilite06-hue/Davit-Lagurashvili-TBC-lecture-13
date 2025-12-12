@@ -10,6 +10,35 @@ $font-medium: 11px;
 $font-large: 20px;
 $font-h1: 24px;
 
+@mixin inline-middle {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@mixin inline-top {
+    display: inline-block;
+    vertical-align: top;
+}
+
+@mixin box-size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin absolute($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin flex($align: flex-start, $justify: flex-start, $gap: 0) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+
 body {
     position: relative;
     padding: 10%;
@@ -24,8 +53,7 @@ h1 {
 }
 
 .navs {
-    display: inline-block;
-    vertical-align: middle;
+    @include inline-middle;
     margin-right: 35px;
     font-size: $font-medium;
     font-weight: 700;
@@ -50,8 +78,7 @@ header {
     height: 357px;
     background-color: $color-white;
     border-radius: 5px;
-    display: inline-block;
-    vertical-align: top;
+    @include inline-top;
     margin-right: 40px;
     margin-bottom: 57px;
 
@@ -59,9 +86,7 @@ header {
         position: relative;
 
         p {
-            position: absolute;
-            top: 37px;
-            left: 40px;
+            @include absolute(37px, 40px);
             font-size: $font-large;
             font-weight: 700;
             color: $color-white;
@@ -73,16 +98,14 @@ header {
 
         p {
             line-height: 2;
-            display: inline-block;
-            vertical-align: middle;
+            @include inline-middle;
             font-size: $font-small;
             font-weight: 700;
             color: $color-grey;
         }
 
         img {
-            display: inline-block;
-            vertical-align: middle;
+            @include inline-middle;
         }
 
         span {
@@ -95,8 +118,7 @@ header {
 
 .left,
 .right {
-    display: inline-block;
-    vertical-align: top;
+    @include inline-top;
     margin-bottom: 5%;
 }
 
@@ -137,11 +159,7 @@ footer {
     padding: 59px 0 0 137px;
     height: 201px;
 
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    gap: 40px;
+    @include flex(flex-start, space-between, 40px);
 
     .footer-list {
         font-weight: 700;
